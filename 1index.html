@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi aliás</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffdd00; /* Fondo amarillo */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .copy-btn {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .copy-btn:hover {
+      background-color: #333;
+    }
+
+    .mp-btn {
+      background-color: #009ee3; /* Azul Mercado Pago */
+      color: #fff;
+    }
+
+    .mp-btn:hover {
+      background-color: #007bbd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Mi aliás</h1>
+    <p id="alias">Brunoalejo.mp</p>
+
+    <button class="copy-btn" onclick="copiarAlias()">📋 Copiar alias</button>
+    <button class="mp-btn" onclick="abrirMP()">💳 Abrir Mercado Pago</button>
+  </div>
+
+  <script>
+    function copiarAlias() {
+      const alias = document.getElementById("alias").innerText;
+      navigator.clipboard.writeText(alias).then(() => {
+        alert("Alias copiado: " + alias);
+      });
+    }
+
+    function abrirMP() {
+      // Intenta abrir la app de MP, si no abre, va a la web
+      window.location.href = "mercadopago://";
+      setTimeout(() => {
+        window.location.href = "https://www.mercadopago.com.ar/";
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
